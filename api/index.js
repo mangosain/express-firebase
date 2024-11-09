@@ -15,6 +15,17 @@ app.use(express.urlencoded({ extended: true }));
 
 // Routes
 
+// Index route
+app.get("/", (req, res) => {
+  return res.status(200).json({
+    routes: {
+      getUsers: "/api/users",
+      getUserById: "/api/users/:id",
+      createUser: "/api/users",
+    },
+  });
+});
+
 // Get all users
 app.get("/api/users/", async (req, res) => {
   const userSnap = getDocs(collection(db, "users"));
