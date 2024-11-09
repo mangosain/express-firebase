@@ -9,7 +9,7 @@ const {
 const { db } = require("./firebase.config");
 
 const app = express();
-const PORT = 3000;
+const PORT = process.env.NODE_ENV === "production" ? 8080 : 3000;
 
 app.use(express.urlencoded({ extended: true }));
 
